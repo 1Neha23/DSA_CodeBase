@@ -1,0 +1,22 @@
+import java.util.scanner.*;
+public class GreedyChainPairs
+{
+public static void main(String args[])
+{
+int pair[][] ={ {5,24}, {39,60}, {5,28} , {27,40}, {50,90} };
+
+Arrays.sort(pairs, Comparator.camparingDouble(0 -> o[1]));
+int chainLen = 1;
+int chainEnd=pair[0][1];
+for(int i=1; i<pairs.length;i++)
+{
+ if(pair[i][0] > chainEnd)
+{
+ chainLen++;
+chainEnd =pair[i][1];
+}
+}
+System.out.println("max length of chain" + chainLen);
+}
+
+}
