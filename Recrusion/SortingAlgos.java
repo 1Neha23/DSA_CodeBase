@@ -2,7 +2,7 @@ package Recrusion;
 
 import java.util.Scanner;
 
-public class MergeQuickSort 
+public class SortingAlgos 
 {
     public static void mergeSort(int arr[],int low, int high)
     {
@@ -93,6 +93,60 @@ public class MergeQuickSort
         arr[j]=temp;
     }
 
+    public static void bubbleSort(int arr[])
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            int flag=0;
+            for(int j=0;j<arr.length-i-1;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    swap(arr, j, j+1);
+                    flag=1;
+                }
+
+            }
+            if(flag==0)
+                break;
+        }
+    }
+
+    public static void selectionSort(int arr[])
+    {
+        for(int i=0;i<arr.length-1;i++)
+        {
+            int min=i;
+            for(int j=i+1;j<arr.length;j++)
+            {
+                if(arr[j]<arr[min])
+                {
+                    min =j;
+                }
+            }
+            if( i!=min)
+            {
+                swap(arr, i, min);
+            }
+        }
+    }
+
+    public static void insertionSort(int arr[])
+    {
+        for(int i=1;i<arr.length;i++)
+        {
+            int temp = arr[i];
+            int j=i-1;
+            while(j>=0 && arr[j]>temp)
+            {
+              arr[j+1]=arr[j];
+                j--;
+            }
+            arr[j+1]=temp;
+
+        }
+    }
+
     public static void printArray(int array [])
     {
         System.err.println("Array in sorted form");
@@ -135,13 +189,20 @@ public class MergeQuickSort
                     printArray(arr);
                     break;
                 case 3:
+                    bubbleSort(arr);
                     printArray(arr);
+                    break;
                 case 4:
+                    selectionSort(arr);
                     printArray(arr);
+                    break;
                 case 5:
+                    insertionSort(arr);
                     printArray(arr);
+                    break;
                 case 0:
                     System.exit(0);
+                    break;
             
                 default:
                     System.out.println("Invalid choice");
